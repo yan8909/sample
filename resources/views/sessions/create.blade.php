@@ -14,12 +14,12 @@
           {{ csrf_field() }}
 
           <div class="form-group">
-            <label for="email">email：</label>
+            <label for="email">e-mail：</label>
             <input type="text" name="email" class="form-control" value="{{ old('email') }}">
           </div>
 
           <div class="form-group">
-            <label for="password">Password<a href="{{ route('password.request') }}">forget password</a>）：</label>
+            <label for="password">password（<a href="{{ route('password.request') }}">forget password</a>）：</label>
             <input type="password" name="password" class="form-control" value="{{ old('password') }}">
           </div>
 
@@ -27,12 +27,12 @@
             <label><input type="checkbox" name="remember"> Remember me</label>
           </div>
 
-          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-primary">login</button>
       </form>
 
       <hr>
 
-      <p>No account?<a href="{{ route('signup') }}">Register Now!</a></p>
+      <p>No Account?<a href="{{ route('signup') }}">Register Now!</a></p>
     </div>
   </div>
 </div>

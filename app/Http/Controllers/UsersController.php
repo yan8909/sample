@@ -48,7 +48,7 @@ class UsersController extends Controller
         $user->save();
 
         Auth::login($user);
-        session()->flash('success', '恭喜你，激活成功！');
+        session()->flash('success', 'Congratulation, successfully activate');
         return redirect()->route('users.show', [$user]);
     }
 
@@ -67,11 +67,11 @@ class UsersController extends Controller
         ]);
 
         $this->sendEmailConfirmationTo($user);
-        session()->flash('success', '验证邮件已发送到你的注册邮箱上，请注意查收。');
+        session()->flash('success', 'Comfirm email has been send, please check.');
         return redirect('/');
 
         Auth::login($user);
-        session()->flash('success', '欢迎，您将在这里开启一段新的旅程~');
+        session()->flash('success', 'Welcome');
         return redirect()->route('users.show', [$user]);
     }
 
@@ -97,7 +97,7 @@ class UsersController extends Controller
         }
         $user->update($data);
 
-        session()->flash('success', '个人资料更新成功！');
+        session()->flash('success', 'Profile successfully update!');
 
         return redirect()->route('users.show', $user->id);
     }
@@ -106,7 +106,7 @@ class UsersController extends Controller
     {
         $this->authorize('destroy', $user);
         $user->delete();
-        session()->flash('success', '成功删除用户！');
+        session()->flash('success', 'Successfully delete user');
         return back();
     }
 
@@ -115,7 +115,7 @@ class UsersController extends Controller
         $view = 'emails.confirm';
         $data = compact('user');
         $to = $user->email;
-        $subject = "感谢注册 Sample 应用！请确认你的邮箱。";
+        $subject = "Thank you for register Sample! Please check your email.";
 
         Mail::send($view, $data, function ($message) use ($to, $subject) {
             $message->to($to)->subject($subject);
@@ -125,14 +125,14 @@ class UsersController extends Controller
     public function followings(User $user)
     {
         $users = $user->followings()->paginate(30);
-        $title = $user->name . '关注的人';
+        $title = $user->name . "'s following";
         return view('users.show_follow', compact('users', 'title'));
     }
 
     public function followers(User $user)
     {
         $users = $user->followers()->paginate(30);
-        $title = $user->name . '的粉丝';
+        $title = $user->name . "'s fans";
         return view('users.show_follow', compact('users', 'title'));
     }
  }
