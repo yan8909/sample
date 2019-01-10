@@ -1,10 +1,10 @@
 @extends('layouts.default')
-@section('title', '重置密码')
+@section('title', 'Reset Password')
 
 @section('content')
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">重置密码</div>
+                <div class="panel-heading">Reset Password</div>
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -16,7 +16,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">邮箱地址：</label>
+                            <label for="email" class="col-md-4 control-label">email:</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -32,7 +32,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    发送密码重置邮件
+                                    send reset password email
                                 </button>
                             </div>
                         </div>

@@ -2,13 +2,13 @@
     <strong id="following" class="stat">
       {{ count($user->followings) }}
     </strong>
-    关注
+    Following
   </a>
   <a href="{{ route('users.followers', $user->id) }}">
     <strong id="followers" class="stat">
       {{ count($user->followers) }}
     </strong>
-    粉丝
+    Fans
   </a>
   <a href="{{ route('users.show', $user->id) }}">
     <strong id="statuses" class="stat">
