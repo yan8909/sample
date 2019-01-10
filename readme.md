@@ -1,4 +1,4 @@
-##simple-weibo
+# simple-weibo
 A simple weibo-like project 
 The purpose of this project is to learn Laravel framwork 
 
